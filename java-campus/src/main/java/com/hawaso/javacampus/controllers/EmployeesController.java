@@ -23,27 +23,24 @@ public class EmployeesController {
     this.repository = repository;
   }
 
-  // Aggregate root
-  // tag::get-aggregate-root[]
-  @GetMapping("/employees")
+  @GetMapping("/api/employees")
   public List<Employee> all() {
     return repository.findAll();
   }
-  // end::get-aggregate-root[]
 
-  @PostMapping("/employees")
+  @PostMapping("/api/employees")
   public Employee newEmployee(@RequestBody Employee newEmployee) {
     return repository.save(newEmployee);
   }
 
   // Single item
   
-  @GetMapping("/employees/{id}")
+  @GetMapping("/api/employees/{id}")
   public Optional<Employee> one(@PathVariable Integer id) {    
     return repository.findById(id);
   }
 
-  @PutMapping("/employees/{id}")
+  @PutMapping("/api/employees/{id}")
   public Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Integer id) {
     
     return repository.findById(id)
@@ -58,7 +55,7 @@ public class EmployeesController {
       });
   }
 
-  @DeleteMapping("/employees/{id}")
+  @DeleteMapping("/api/employees/{id}")
   public  void deleteEmployee(@PathVariable Integer id) {
     repository.deleteById(id);
   }

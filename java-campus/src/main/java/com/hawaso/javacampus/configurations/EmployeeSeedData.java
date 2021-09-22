@@ -10,14 +10,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class LoadDatabase {
-  private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
+public class EmployeeSeedData {
+  private static final Logger log = LoggerFactory.getLogger(EmployeeSeedData.class);
 
   @Bean
   public CommandLineRunner initDatabase(EmployeeRepository repository) {
     return args -> {
-      log.info("Preloading " + repository.save(new Employee("홍길동", "burglar")));
-      log.info("Preloading " + repository.save(new Employee("백두산", "thief")));
+      log.info("Preloading " + repository.save(new Employee("길동", "홍", "burglar")));
+      log.info("Preloading " + repository.save(new Employee("두산", "백", "thief")));
+      log.info("Preloading " + repository.save(new Employee("꺽정", "임", "thief")));
     };
   }
 }
