@@ -16,9 +16,9 @@ public class EmployeeSeedData {
   @Bean
   public CommandLineRunner initDatabase(EmployeeRepository repository) {
     return args -> {
-      log.info("Preloading " + repository.save(new Employee("길동", "홍", "burglar")));
-      log.info("Preloading " + repository.save(new Employee("두산", "백", "thief")));
-      log.info("Preloading " + repository.save(new Employee("꺽정", "임", "thief")));
+      log.info("Preloading " + repository.save(new Employee("길동", "홍", "Users")));
+      log.info("Preloading " + repository.save(new Employee("두산", "백", "Managers")));
+      log.info("Preloading " + repository.save(new Employee("꺽정", "임", "Administrators")));
     };
   }
 }
