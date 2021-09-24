@@ -1,4 +1,4 @@
-package com.hawaso.javacampus.repositories;
+package com.hawaso.javacampus.repositories.employees;
 
 import java.util.List;
 

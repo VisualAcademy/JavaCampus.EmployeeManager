@@ -1,7 +1,7 @@
 package com.hawaso.javacampus.configurations;
 
 import com.hawaso.javacampus.models.employees.Employee;
-import com.hawaso.javacampus.repositories.EmployeeRepository;
+import com.hawaso.javacampus.repositories.employees.EmployeeRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

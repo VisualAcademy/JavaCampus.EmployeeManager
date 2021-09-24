@@ -3,7 +3,7 @@ package com.hawaso.javacampus.services.employees;
 import java.util.List;
 
 import com.hawaso.javacampus.models.employees.Employee;
-import com.hawaso.javacampus.repositories.EmployeeRepository;
+import com.hawaso.javacampus.repositories.employees.EmployeeRepository;
 
 import org.springframework.stereotype.Service;
 

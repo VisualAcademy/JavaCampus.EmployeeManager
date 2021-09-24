@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.hawaso.javacampus.models.employees.Employee;
-import com.hawaso.javacampus.repositories.EmployeeRepository;
+import com.hawaso.javacampus.repositories.employees.EmployeeRepository;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
