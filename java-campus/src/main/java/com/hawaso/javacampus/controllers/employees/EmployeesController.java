@@ -1,9 +1,9 @@
-package com.hawaso.javacampus.controllers;
+package com.hawaso.javacampus.controllers.employees;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.hawaso.javacampus.models.Employee;
+import com.hawaso.javacampus.models.employees.Employee;
 import com.hawaso.javacampus.repositories.EmployeeRepository;
 
 import org.springframework.web.bind.annotation.DeleteMapping;

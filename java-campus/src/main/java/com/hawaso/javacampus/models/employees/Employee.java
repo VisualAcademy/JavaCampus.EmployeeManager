@@ -1,4 +1,4 @@
-package com.hawaso.javacampus.models;
+package com.hawaso.javacampus.models.employees;
 
 import java.util.Objects;
 

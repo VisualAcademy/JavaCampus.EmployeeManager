@@ -2,7 +2,7 @@ package com.hawaso.javacampus.repositories;
 
 import java.util.List;
 
-import com.hawaso.javacampus.models.Employee;
+import com.hawaso.javacampus.models.employees.Employee;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

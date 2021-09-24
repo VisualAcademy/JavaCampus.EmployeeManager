@@ -1,8 +1,8 @@
-package com.hawaso.javacampus.services;
+package com.hawaso.javacampus.services.employees;
 
 import java.util.List;
 
-import com.hawaso.javacampus.models.Employee;
+import com.hawaso.javacampus.models.employees.Employee;
 
 // IEmployeeService 인터페이스 설계 
 public interface IEmployeeService {
