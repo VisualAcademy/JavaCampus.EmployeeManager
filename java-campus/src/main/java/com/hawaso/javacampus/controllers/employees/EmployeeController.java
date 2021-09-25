@@ -1,10 +1,13 @@
 package com.hawaso.javacampus.controllers.employees;
 
+import javax.validation.Valid;
+
 import com.hawaso.javacampus.models.employees.Employee;
 import com.hawaso.javacampus.services.employees.EmployeeService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,8 +38,13 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("employee") Employee model) {
-        _service.save(model);
-        return "redirect:/employee/list";
+    public String save(@Valid @ModelAttribute("employee") Employee model, BindingResult br) {
+        if (br.hasErrors()) {
+            return "views/employees/create";
+        }
+        else {
+            _service.save(model);
+            return "redirect:/employee/list";
+        }
     }
 }

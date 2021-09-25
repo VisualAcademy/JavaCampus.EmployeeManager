@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Employees")
@@ -18,15 +19,16 @@ public class Employee {
     @Column(name = "Id")
     private Integer id;
     
-    @NotBlank(message = "필수 입력 항목")
+    @NotBlank(message = "FirstName을 입력하세요.")
     @Column(name = "FirstName")
+    @Size(min = 2, max = 10)
     private String firstName;
-
-    @NotBlank(message = "필수 입력 항목")
+    
+    @NotBlank(message = "LastName을 입력하세요.")
     @Column(name = "LastName")
     private String lastName;
     
-    @NotBlank(message = "필수 입력 항목")
+    @NotBlank(message = "Role을 입력하세요.")
     @Column(name = "Role")
     private String role;
 
