@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,44 +8,41 @@
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
 <body>
-    
     <div class="container">
-
         <h1>Create</h1>
-
         <h4>Employee</h4>
         <hr />
         <div class="row">
             <div class="col-md-4">
-                <form action="/Employee/Create" method="post">
-                    
+                <form action="#" th:action="@{/employee/save}" th:object="${employee}" method="post">
                     <div class="form-group">
                         <label class="control-label" for="FirstName">FirstName</label>
-                        <input class="form-control" type="text" data-val="true" data-val-required="The FirstName field is required." id="FirstName" name="FirstName" value="" />
-                        <span class="text-danger field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+                        <input class="form-control" type="text" data-val="true"
+                            data-val-required="The FirstName field is required." th:field="*{firstName}"
+                            />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true">*</span>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="LastName">LastName</label>
-                        <input class="form-control" type="text" data-val="true" data-val-required="The LastName field is required." id="LastName" name="LastName" value="" />
+                        <input class="form-control" type="text" data-val="true"
+                            data-val-required="The LastName field is required." th:field="*{lastName}" />
                         <span class="text-danger field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="Role">Role</label>
-                        <input class="form-control" type="text" data-val="true" data-val-required="The Role field is required." id="Role" name="Role" value="" />
+                        <input class="form-control" type="text" data-val="true"
+                            data-val-required="The Role field is required." th:field="*{role}" />
                         <span class="text-danger field-validation-valid" data-valmsg-for="Role" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Create" class="btn btn-primary" />
                     </div>
-                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8IcV8UHF_BJArWyKrer2O6wYok0GNT_2SAu3ukUgm8W9bR_xu80mS6W4Df8QzqMQyUAr5XpFkZ9iIEF-ExRbpmqwnCP94WDlp9uSX3q7E2iR7AUwUHKJqpP75L7wL5WthcZI6r5ePBAsA5lPDJdk0hE" /></form>
+                </form>
             </div>
         </div>
-        
         <div>
-            <a href="/employee">Back to List</a>
+            <a href="/employee" th:href="@{/employee/index}">Back to List</a>
         </div>
-
     </div>
-
 </body>
 </html>
