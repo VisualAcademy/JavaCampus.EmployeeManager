@@ -15,6 +15,9 @@
         <div class="row">
             <div class="col-md-4">
                 <form action="#" th:action="@{/employee/save}" th:object="${employee}" method="post">
+
+                    <input type="hidden" th:field="*{id}" />
+
                     <div class="form-group">
                         <label class="control-label" for="FirstName">FirstName</label>
                         <input class="form-control" type="text" data-val="true"

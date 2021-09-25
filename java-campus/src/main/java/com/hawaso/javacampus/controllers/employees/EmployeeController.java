@@ -54,4 +54,11 @@ public class EmployeeController {
         _service.delete(id);
         return "redirect:/employee";
     }
+
+    @GetMapping("/edit")
+    public String edit(@RequestParam("id") int id, Model model) {
+        var employee = _service.getById(id);
+        model.addAttribute("employee", employee);
+        return "views/employees/create";
+    }
 }
