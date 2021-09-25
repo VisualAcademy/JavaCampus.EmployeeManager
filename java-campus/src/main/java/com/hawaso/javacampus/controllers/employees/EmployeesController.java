@@ -16,47 +16,47 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class EmployeesController {
+    // Repository 인터페이스 주입
+    private final EmployeeRepository _repository;
 
-  private final EmployeeRepository repository;
+    public EmployeesController(EmployeeRepository repository) {
+        this._repository = repository;
+    }
 
-  public EmployeesController(EmployeeRepository repository) {
-    this.repository = repository;
-  }
+    // 출력
+    @GetMapping("/api/employees")
+    public List<Employee> all() {
+        return _repository.findAll();
+    }
 
-  @GetMapping("/api/employees")
-  public List<Employee> all() {
-    return repository.findAll();
-  }
+    // 입력
+    @PostMapping("/api/employees")
+    public Employee newEmployee(@RequestBody Employee newEmployee) {
+        return _repository.save(newEmployee);
+    }
 
-  @PostMapping("/api/employees")
-  public Employee newEmployee(@RequestBody Employee newEmployee) {
-    return repository.save(newEmployee);
-  }
+    // 상세
+    @GetMapping("/api/employees/{id}")
+    public Optional<Employee> one(@PathVariable Integer id) {
+        return _repository.findById(id);
+    }
 
-  // Single item
-  
-  @GetMapping("/api/employees/{id}")
-  public Optional<Employee> one(@PathVariable Integer id) {    
-    return repository.findById(id);
-  }
+    // 수정
+    @PutMapping("/api/employees/{id}")
+    public Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Integer id) {
+        return _repository.findById(id).map(employee -> {
+            employee.setName(newEmployee.getName());
+            employee.setRole(newEmployee.getRole());
+            return _repository.save(employee);
+        }).orElseGet(() -> {
+            newEmployee.setId(id);
+            return _repository.save(newEmployee);
+        });
+    }
 
-  @PutMapping("/api/employees/{id}")
-  public Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Integer id) {
-    
-    return repository.findById(id)
-      .map(employee -> {
-        employee.setName(newEmployee.getName());
-        employee.setRole(newEmployee.getRole());
-        return repository.save(employee);
-      })
-      .orElseGet(() -> {
-        newEmployee.setId(id);
-        return repository.save(newEmployee);
-      });
-  }
-
-  @DeleteMapping("/api/employees/{id}")
-  public  void deleteEmployee(@PathVariable Integer id) {
-    repository.deleteById(id);
-  }
+    // 삭제
+    @DeleteMapping("/api/employees/{id}")
+    public void deleteEmployee(@PathVariable Integer id) {
+        _repository.deleteById(id);
+    }
 }
