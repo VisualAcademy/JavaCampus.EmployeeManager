@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/employee")
@@ -46,5 +47,11 @@ public class EmployeeController {
             _service.save(model);
             return "redirect:/employee/list";
         }
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") int id) {
+        _service.delete(id);
+        return "redirect:/employee";
     }
 }

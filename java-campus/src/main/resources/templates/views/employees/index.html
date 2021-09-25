@@ -43,8 +43,10 @@
                     </td>
                     <td>
                         <a href="/Employee/Edit/2">Edit</a> |
-                        <a href="/Employee/Details/2">Details</a> |
-                        <a href="/Employee/Delete/2">Delete</a>
+                        <!-- <a href="/Employee/Details/2">Details</a> | -->
+                        <a th:href="@{/employee/delete(id=${vm.id})}"
+                            onclick="return window.confirm('정말로 삭제하시겠습니까?')"
+                        >Delete</a>
                     </td>
                 </tr>
                 <!-- <tr>
