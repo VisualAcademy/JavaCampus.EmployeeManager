@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.util.StringUtils;
 
 @Controller
 @RequestMapping("/employee")
@@ -60,5 +61,17 @@ public class EmployeeController {
         var employee = _service.getById(id);
         model.addAttribute("employee", employee);
         return "views/employees/create";
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("searchQuery") String searchQuery, Model model) {
+        if (searchQuery.trim().isEmpty() && StringUtils.isEmpty(searchQuery)) {
+            return "redirect:/employee";
+        }
+        else {
+            var employees = _service.searchAll(searchQuery, searchQuery);
+            model.addAttribute("employees", employees);
+            return "views/employees/index";
+        }
     }
 }

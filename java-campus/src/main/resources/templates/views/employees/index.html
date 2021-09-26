@@ -9,12 +9,26 @@
 </head>
 <body>
     <div class="container">
-
+    
         <h1>Index</h1>
-
-        <p>
-            <a href="/employee/create">Create New</a>
-        </p>
+    
+        <div class="row">
+            <div class="hidden-xs col-sm-6 col-md-8">
+                <a href="/employee/create">Create New</a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-right">
+                <form action="#" th:action="@{/employee/search}" method="GET">
+                    <div class="input-group mb-2">
+                        <input type="search" class="form-control" placeholder="Employee" aria-label="Employee"
+                            aria-describedby="Employee Search" name="searchQuery">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit" id="btnSearch">검색</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
         <table class="table">
             <thead>
                 <tr>
@@ -45,29 +59,28 @@
                         <a th:href="@{/employee/edit(id=${vm.id})}">Edit</a> |
                         <!-- <a href="/Employee/Details/2">Details</a> | -->
                         <a th:href="@{/employee/delete(id=${vm.id})}"
-                            onclick="return window.confirm('정말로 삭제하시겠습니까?')"
-                        >Delete</a>
+                            onclick="return window.confirm('정말로 삭제하시겠습니까?')">Delete</a>
                     </td>
                 </tr>
                 <!-- <tr>
-                    <td>
-                        Test
-                    </td>
-                    <td>
-                        Kim
-                    </td>
-                    <td>
-                        Users
-                    </td>
-                    <td>
-                        <a href="/employee/edit/3">Edit</a> |
-                        <a href="/employee/details/3">Details</a> |
-                        <a href="/employee/delete/3">Delete</a>
-                    </td>
-                </tr> -->
+                        <td>
+                            Test
+                        </td>
+                        <td>
+                            Kim
+                        </td>
+                        <td>
+                            Users
+                        </td>
+                        <td>
+                            <a href="/employee/edit/3">Edit</a> |
+                            <a href="/employee/details/3">Details</a> |
+                            <a href="/employee/delete/3">Delete</a>
+                        </td>
+                    </tr> -->
             </tbody>
         </table>
-
+    
     </div>
 </body>
 </html>
